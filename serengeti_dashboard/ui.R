@@ -2,11 +2,12 @@ library(shiny)
 library(shinydashboard)
 
 source('overview.R')
+source('scatterplot.R')
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
     menuItem('Overview', tabName='overview'),
-    menuItem('Scatterplot'),
+    menuItem('Scatterplot', tabName='scatterplot'),
     menuItem('Boxplot'),
     menuItem('Daily Activity'),
     menuItem('Annual Activity'),
@@ -18,7 +19,8 @@ body <- dashboardBody(
   
   # start of tabs
   tabItems(
-    overviewTab
+    overviewTab,
+    scatterplotTab
   )
   
   # end of body
