@@ -1,4 +1,4 @@
-
+library(tidyverse)
 
 # Code from https://github.com/klemensj/Serengeti-Apps/tree/master/Serengeti_activity_time
 # DATA 
@@ -15,3 +15,4 @@ predList <- as.list(c("batEaredFox","jackal","hyenaSpotted","hyenaStriped","wild
 camData_distinct <- Serengeti %>% distinct(Camera.Site, .keep_all = TRUE)     
 camData <- select(camData_distinct, Camera.Site:Camera.Mount)
 #===============================================================================
+
