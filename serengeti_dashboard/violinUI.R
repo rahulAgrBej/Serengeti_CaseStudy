@@ -35,7 +35,8 @@ violinplotTab <- tabItem(
   # Row for the output violinplot
   fluidRow(
     box(
-      width=12
+      width=12,
+      plotOutput('violinPredPrey')
     )
   )
 )
