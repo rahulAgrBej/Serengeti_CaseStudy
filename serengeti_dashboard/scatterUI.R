@@ -1,4 +1,6 @@
 
+source('scatterGenerate.R')
+
 # scatterplot tab
 scatterplotTab <- tabItem(
   tabName = 'scatterplot',
@@ -12,11 +14,12 @@ scatterplotTab <- tabItem(
       '...tests'
     ),
     box(
-      h2('Data Filters:')
+      h2('Data Filters:'),
+      
     )
   ),
   
-  # Row for the plot of the data
+  # Row for the output scatterplot
   fluidRow(
     box(
       width=12

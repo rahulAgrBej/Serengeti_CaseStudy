@@ -20,7 +20,8 @@ body <- dashboardBody(
   # start of tabs
   tabItems(
     overviewTab,
-    scatterplotTab
+    scatterplotTab,
+    
   )
   
   # end of body
