@@ -1,3 +1,8 @@
+library(shiny)
+library(shinythemes)
+library(tidyverse)
+library(lubridate)
+
 getSerengetiData <- function(fp) {
   
   data <- read_csv(fp) 

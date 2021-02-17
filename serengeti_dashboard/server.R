@@ -1,6 +1,7 @@
 
 source('violinGenerate.R')
 source('boxplotGenerate.R')
+source('scatterGenerate.R')
 
 server <- function(input, output) {
   
@@ -21,5 +22,20 @@ server <- function(input, output) {
     input$x_box,
     input$y_box)
     })
+  
+  # Scatter Plot Output
+  output$scatterplotRender <- renderPlot({ scatterplotCreate(
+    input$species_scatter,
+    input$standing_scatter,
+    input$resting_scatter,
+    input$moving_scatter,
+    input$eating_scatter,
+    input$interacting_scatter,
+    input$babies_scatter,
+    input$habitat_scatter,
+    input$date_scatter,
+    input$x_scatter,
+    input$y_scatter)
+  })
   
 }
