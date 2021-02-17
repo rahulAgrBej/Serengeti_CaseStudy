@@ -5,12 +5,13 @@ library(shinyWidgets)
 source('overviewUI.R')
 source('scatterUI.R')
 source('violinUI.R')
+source('boxplotUI.R')
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
     menuItem('Overview', tabName='overview'),
     menuItem('Scatterplot', tabName='scatterplot'),
-    menuItem('Boxplot'),
+    menuItem('Boxplot', tabName='boxplot'),
     menuItem('Daily Activity', tabName='violinplot'),
     menuItem('Annual Activity'),
     menuItem('Spatial Distribution')
@@ -23,6 +24,7 @@ body <- dashboardBody(
   tabItems(
     overviewTab,
     scatterplotTab,
+    boxplotTab,
     violinplotTab
   )
   
