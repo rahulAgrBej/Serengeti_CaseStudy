@@ -2,6 +2,8 @@ library(shiny)
 library(shinythemes)
 library(tidyverse)
 library(lubridate)
+library(ggplot2)
+library(scales)
 
 getSerengetiData <- function(fp) {
   
