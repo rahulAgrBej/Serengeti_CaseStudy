@@ -16,16 +16,17 @@ boxplotCreate <- function(
   x_input,
   y_input) {
   
-  ss_data_filtered <- ss_data %>% 
-    filter(Species %in% species_input) %>%
-    filter(Standing %in% standing_input) %>% 
-    filter(Resting %in% resting_input) %>%
-    filter(Moving %in% moving_input) %>%
-    filter(Eating %in% eating_input) %>%
-    filter(Interacting %in% interacting_input) %>%
-    filter(Babies %in% babies_input) %>%
-    filter(Habitat %in% habitat_input) %>%
-    filter(Date >= date_input[1] & Date <= date_input[2])
+  ss_data_filtered <- filterSerengetiData(
+    ss_data,
+    species_input,
+    standing_input,
+    resting_input,
+    moving_input,
+    eating_input,
+    interacting_input,
+    babies_input,
+    habitat_input,
+    date_input) 
   
   p <- ss_data_filtered %>%
     ggplot(aes_string(x = x_input, y = y_input)) +

@@ -45,6 +45,35 @@ getSerengetiData <- function(fp) {
   return(data)
 }
 
+filterSerengetiData <- function(
+  data,
+  species_input,
+  standing_input,
+  resting_input,
+  moving_input,
+  eating_input,
+  interacting_input,
+  babies_input,
+  habitat_input,
+  date_input) {
+  
+  data_filtered <- data %>% 
+    filter(Species %in% species_input) %>%
+    filter(Standing %in% standing_input) %>% 
+    filter(Resting %in% resting_input) %>%
+    filter(Moving %in% moving_input) %>%
+    filter(Eating %in% eating_input) %>%
+    filter(Interacting %in% interacting_input) %>%
+    filter(Babies %in% babies_input) %>%
+    filter(Habitat %in% habitat_input) %>%
+    filter(Date >= date_input[1] & Date <= date_input[2])
+  
+  return(data_filtered)
+}
+
+ss_data <- getSerengetiData('../../Full_Serengeti_Data.csv')
+species_list <- levels(ss_data$Species)
+
 # A colorblind-friendly palette with grey:
 cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#999999")
 
