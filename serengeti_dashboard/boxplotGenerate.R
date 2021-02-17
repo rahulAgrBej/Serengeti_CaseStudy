@@ -1,5 +1,4 @@
-
-# Rearranging and adapting code snippet from the boxplot app.R written by Sadie Herbert
+source('helpers.R')
 
 ss_data <- getSerengetiData('../../Full_Serengeti_Data.csv')
 species_list <- levels(ss_data$Species)
@@ -17,8 +16,7 @@ boxplotCreate <- function(
   x_input,
   y_input) {
   
-  ss_data_box <- getSerengetiData('../../Full_Serengeti_Data.csv')
-  ss_data_filtered <- ss_data_box %>% 
+  ss_data_filtered <- ss_data %>% 
     filter(Species %in% species_input) %>%
     filter(Standing %in% standing_input) %>% 
     filter(Resting %in% resting_input) %>%
