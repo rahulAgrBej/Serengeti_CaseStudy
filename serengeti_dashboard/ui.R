@@ -6,10 +6,12 @@ source('overviewUI.R')
 source('scatterUI.R')
 source('violinUI.R')
 source('boxplotUI.R')
+source('barUI.R')
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
     menuItem('Overview', tabName='overview'),
+    menuItem('Bar Chart Plot', tabName='barplot'),
     menuItem('Scatterplot', tabName='scatterplot'),
     menuItem('Boxplot', tabName='boxplot'),
     menuItem('Daily Activity', tabName='violinplot'),
@@ -23,6 +25,7 @@ body <- dashboardBody(
   # start of tabs
   tabItems(
     overviewTab,
+    barTab,
     scatterplotTab,
     boxplotTab,
     violinplotTab
