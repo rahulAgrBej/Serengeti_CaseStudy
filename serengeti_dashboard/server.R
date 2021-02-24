@@ -1,9 +1,25 @@
 
+source('barGenerate.R')
 source('violinGenerate.R')
 source('boxplotGenerate.R')
 source('scatterGenerate.R')
 
 server <- function(input, output) {
+  
+  # Bar Plot Output
+  output$barplotRender <- renderPlot({ barplotCreate(
+    input$species_bar,
+    input$standing_bar,
+    input$resting_bar,
+    input$moving_bar,
+    input$eating_bar,
+    input$interacting_bar,
+    input$babies_bar,
+    input$habitat_bar,
+    input$date_bar,
+    input$x_bar,
+    input$y_bar)
+  })
   
   # Violin Plot Output
   output$violinPredPrey <- renderPlot({ dailyViolinPlot(input$species_select) })

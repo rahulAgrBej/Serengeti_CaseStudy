@@ -78,6 +78,40 @@ filterSerengetiData <- function(
   return(data_filtered)
 }
 
+summarize_data <- function(
+  data,
+  species_input,
+  standing_input,
+  resting_input,
+  moving_input,
+  eating_input,
+  interacting_input,
+  babies_input,
+  habitat_input,
+  date_input,
+  x_input) {
+  
+  summary <- data %>% 
+    filter(Species %in% species_input) %>%
+    filter(Standing %in% standing_input) %>%
+    filter(Resting %in% resting_input) %>%
+    filter(Moving %in% moving_input) %>%
+    filter(Eating %in% eating_input) %>%
+    filter(Interacting %in% interacting_input) %>%
+    filter(Babies %in% babies_input) %>%
+    filter(Habitat %in% habitat_input) %>%
+    filter(Date >= date_input[1] & Date <= date_input[2]) %>%
+    group_by(Species, !!(as.symbol(x_input))) %>%
+    count(name = "Count") %>%
+    ungroup() %>%
+    group_by(Species) %>%
+    complete(!!(as.symbol(x_input)), fill = list(Count = 0)) %>%
+    mutate(Frequency = round(Count/sum(Count), 3))
+  
+  
+  return(summary)
+}
+
 ss_data <- getSerengetiData('../../Full_Serengeti_Data.csv')
 species_list <- levels(ss_data$Species)
 

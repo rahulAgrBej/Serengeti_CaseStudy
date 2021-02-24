@@ -7,11 +7,11 @@ barTab <- tabItem(
     box(width=4,
       h2('Activity:'),
       'Enter activity data here', br(),
-      selectInput(inputId = "x_input", 
+      selectInput(inputId = "x_bar", 
                   label = "x-axis", 
                   choices = categorical_vars,
                   selected = "Babies"),
-      selectInput(inputId = "y_input", 
+      selectInput(inputId = "y_bar", 
                   label = "y-axis", 
                   choices = c("Count", "Frequency"),
                   selected = "Count"),
@@ -65,7 +65,8 @@ barTab <- tabItem(
       
     ),
     box(width=8,
-      h2('TESTING BAR PLOT')
+      h2('TESTING BAR PLOT'),
+      plotOutput('barplotRender')
     )
   )
 )

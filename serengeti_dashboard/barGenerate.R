@@ -1,2 +1,48 @@
 
 source('helpers.R')
+
+barplotCreate <- function(
+  species_input,
+  standing_input,
+  resting_input,
+  moving_input,
+  eating_input,
+  interacting_input,
+  babies_input,
+  habitat_input,
+  date_input,
+  x_input,
+  y_input) {
+  
+  summary_data <- summarize_data(
+    ss_data,
+    species_input,
+    standing_input,
+    resting_input,
+    moving_input,
+    eating_input,
+    interacting_input,
+    babies_input,
+    habitat_input,
+    date_input,
+    x_input)
+  
+  p <- summary_data %>% 
+    ggplot(aes_string(x = x_input, y = y_input)) +
+    geom_col(aes(fill = Species), position = position_dodge()) +
+    geom_text(aes(group = Species, label = paste0("N = ", Count)),
+              vjust = -0.5, size = 5, fontface = 'bold', position = position_dodge(width = 1)) +
+    scale_fill_manual(values = cbPalette) +
+    theme_minimal() +
+    scale_x_discrete(labels = label_wrap(10)) +
+    theme(axis.title = element_text(face = "bold", size = 24),
+          axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+          axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0)),
+          axis.text.x = element_text(size = 20),
+          axis.text.y = element_text(size = 20),
+          legend.text = element_text(size = 20),
+          legend.title = element_text(face = "bold", size = 24),
+          plot.margin = unit(c(1,1,1,1), "cm"))
+  
+  return(p)
+}
