@@ -21,6 +21,20 @@ server <- function(input, output) {
     input$y_bar)
   })
   
+  # Histogram Plot Output
+  output$histoplotRender <- renderPlot({ histoplotCreate(
+    input$species_histo,
+    input$standing_histo,
+    input$resting_histo,
+    input$moving_histo,
+    input$eating_histo,
+    input$interacting_histo,
+    input$babies_histo,
+    input$habitat_histo,
+    input$date_histo,
+    input$x_histo)
+  })
+  
   # Violin Plot Output
   output$violinPredPrey <- renderPlot({ dailyViolinPlot(input$species_select) })
   

@@ -14,7 +14,7 @@ barplotCreate <- function(
   x_input,
   y_input) {
   
-  summary_data <- summarize_data(
+  summary_data <- filterSerengetiData(
     ss_data,
     species_input,
     standing_input,
@@ -24,8 +24,15 @@ barplotCreate <- function(
     interacting_input,
     babies_input,
     habitat_input,
-    date_input,
-    x_input)
+    date_input)
+  
+  summary_data <- summary_data %>%
+    group_by(Species, !!(as.symbol(x_input))) %>%
+    count(name = "Count") %>%
+    ungroup() %>%
+    group_by(Species) %>%
+    complete(!!(as.symbol(x_input)), fill = list(Count = 0)) %>%
+    mutate(Frequency = round(Count/sum(Count), 3))
   
   p <- summary_data %>% 
     ggplot(aes_string(x = x_input, y = y_input)) +

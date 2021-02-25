@@ -7,11 +7,13 @@ source('scatterUI.R')
 source('violinUI.R')
 source('boxplotUI.R')
 source('barUI.R')
+source('histoUI.R')
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
     menuItem('Overview', tabName='overview'),
     menuItem('Bar Chart Plot', tabName='barplot'),
+    menuItem('Histograms', tabName='histoplot'),
     menuItem('Scatterplot', tabName='scatterplot'),
     menuItem('Boxplot', tabName='boxplot'),
     menuItem('Daily Activity', tabName='violinplot'),
@@ -26,6 +28,7 @@ body <- dashboardBody(
   tabItems(
     overviewTab,
     barTab,
+    histoTab,
     scatterplotTab,
     boxplotTab,
     violinplotTab

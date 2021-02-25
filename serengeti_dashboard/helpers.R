@@ -100,13 +100,7 @@ summarize_data <- function(
     filter(Interacting %in% interacting_input) %>%
     filter(Babies %in% babies_input) %>%
     filter(Habitat %in% habitat_input) %>%
-    filter(Date >= date_input[1] & Date <= date_input[2]) %>%
-    group_by(Species, !!(as.symbol(x_input))) %>%
-    count(name = "Count") %>%
-    ungroup() %>%
-    group_by(Species) %>%
-    complete(!!(as.symbol(x_input)), fill = list(Count = 0)) %>%
-    mutate(Frequency = round(Count/sum(Count), 3))
+    filter(Date >= date_input[1] & Date <= date_input[2]) 
   
   
   return(summary)
@@ -143,6 +137,18 @@ continuous_vars <- c("Amount_of_Shade",
                      "Log_Number_Of_Animals",
                      "Log_Tree_Density_Measure")
 
+continuous_vars_no_log <- c("Amount_of_Shade",
+                            "Distance_to_Confluence_m",
+                            "Distance_to_Kopje_m",
+                            "Distance_to_River_m",
+                            "Greeness_Dry",
+                            "Greeness_Wet",
+                            "Latitude_m",
+                            "Lion_Risk_Dry",
+                            "Lion_Risk_Wet",
+                            "Longitude_m",
+                            "Number_Of_Animals",
+                            "Tree_Density_Measure")
 
 categorical_vars <- c("Babies",
                       "Eating",
