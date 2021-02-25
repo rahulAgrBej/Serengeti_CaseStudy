@@ -10,7 +10,7 @@ cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00",
 
 
 
-ss_data <- read_csv("/Volumes/CBS/Groups/PROJ-CURE Assessment/BIOL 1001/Snapshot Serengeti Shiny App/Snapshot Serengeti Box Plot/Full Serengeti Data.csv") 
+ss_data <- read_csv("/Volumes/Groups/PROJ-CURE Assessment/BIOL 1001/Snapshot Serengeti Shiny App/Snapshot Serengeti Scatter Plot/Full Serengeti Data.csv") 
 
 
 names(ss_data) <- gsub(" ", "_", names(ss_data))
@@ -160,10 +160,11 @@ server <- function(input, output) {
     summarised_data() %>% 
       ggplot(aes_string(x = input$x_input, y = input$y_input)) +
       geom_col(aes(fill = Species), position = position_dodge()) +
-      geom_text(aes(group = Species, label = paste0("N = ", Count)),
-                vjust = -0.5, size = 5, fontface = 'bold', position = position_dodge(width = 1)) +
+      geom_text(aes(group = Species, label = paste0("N = ", Count, "\nFreq = ", round(Frequency, 2))),
+                vjust = -0.25, size = 4, fontface = 'bold', position = position_dodge(width = 0.9)) +
       scale_fill_manual(values = cbPalette) +
       theme_minimal() +
+      scale_y_continuous(expand = expansion(mult = c(0, .1))) +
       scale_x_discrete(labels = label_wrap(10)) +
       theme(axis.title = element_text(face = "bold", size = 24),
             axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
