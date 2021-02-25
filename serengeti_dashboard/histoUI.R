@@ -10,7 +10,7 @@ histoTab <- tabItem(
       h2('Data Filters:'),
       selectInput(inputId = "x_histo", 
                   label = "x-axis", 
-                  choices = continuous_vars,
+                  choices = continuous_vars_no_log,
                   selected = "Distance_to_River_m"),
       multiInput(inputId = "species_histo", 
                  label = "Species (select up to five)", 
