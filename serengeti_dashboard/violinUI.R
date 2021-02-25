@@ -15,7 +15,7 @@ violinplotTab <- tabItem(
       h2('Data Filters:'),
       multiInput(inputId='species_violin',
                  label='Select Species (1-5 species):',
-                 choices=ss_data$Species),
+                 choices=levels(ss_data$Species)),
       switchInput(inputId='advanced_options_selected_violin',
                   label='Show Advanced options',
                   value=FALSE),
@@ -58,8 +58,7 @@ violinplotTab <- tabItem(
                                       min    = min(ss_data$Date),
                                       max    = max(ss_data$Date),
                                       format = "mm/dd/yy",
-                                      separator = " - "))
-    ),
+                                      separator = " - "))),
     box(width=9,
       plotOutput('violinPredPrey')
     )
