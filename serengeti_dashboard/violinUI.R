@@ -7,35 +7,60 @@ violinplotTab <- tabItem(
   
   # Row for activity description and for data filters
   fluidRow(
-    box(
+    box(width=3,
       h2('Activity:'),
       'Filter using 1 variable', br(),
       'Filter using 2 variables', br(),
-      '...tests'
-    ),
-    box(
+      '...tests', br(),
       h2('Data Filters:'),
-      multiInput(inputId='species_select',
-                         label='Select Species (1-5 species):',
-                         choices=speciesList),
-      radioButtons(inputId='juvenile_option',
-                   label='Filter based on whether juveniles were present of not:',
-                   choices=list('All'=1, 'With_Juveniles'=2, 'Without_Juveniles'=3),
-                   selected=1),
-      checkboxGroupInput(inputId='habitat_select',
-                         label='Filter based on type of habitat:',
-                         choices=c('optionA','optionB','optionC')),
-      dateRangeInput(inputId='date_select',
-                     label='Filter based on Date Range:',
-                     start='2010-08-01',
-                     end='2012-05-29')
-    )
-  ),
-  
-  # Row for the output violinplot
-  fluidRow(
-    box(
-      width=12,
+      multiInput(inputId='species_violin',
+                 label='Select Species (1-5 species):',
+                 choices=ss_data$Species),
+      switchInput(inputId='advanced_options_selected_violin',
+                  label='Show Advanced options',
+                  value=FALSE),
+      conditionalPanel(condition='input.advanced_options_selected_violin == true',
+                       checkboxGroupInput(inputId = "standing_violin",
+                                          label = "Standing",
+                                          choices = levels(ss_data$Standing),
+                                          selected = c("Not standing", "Standing")),
+                       checkboxGroupInput(inputId = "resting_violin",
+                                          label = "Resting",
+                                          choices = levels(ss_data$Resting),
+                                          selected = c("Not resting", "Resting")),
+                       checkboxGroupInput(inputId = "moving_violin",
+                                          label = "Moving",
+                                          choices = levels(ss_data$Moving),
+                                          selected = c("Not moving", "Moving")),
+                       checkboxGroupInput(inputId = "eating_violin",
+                                          label = "Eating",
+                                          choices = levels(ss_data$Eating),
+                                          selected = c("Not eating", "Eating")),
+                       checkboxGroupInput(inputId = "interacting_violin",
+                                          label = "Interacting",
+                                          choices = levels(ss_data$Interacting),
+                                          selected = c("Not interacting", "Interacting")),
+                       checkboxGroupInput(inputId = "babies_violin",
+                                          label = "Babies",
+                                          choices = levels(ss_data$Babies),
+                                          selected = c("No babies", "Babies")),
+                       checkboxGroupInput(inputId ="habitat_violin",
+                                          label = "Habitat (select any or all)",
+                                          choices = levels(ss_data$Habitat),
+                                          selected = c("Dense Woodland",
+                                                       "Grassland w/Trees",
+                                                       "Open Grassland",
+                                                       "Open Woodland/Shrubs")),
+                       dateRangeInput(inputId ="date_violin",
+                                      label = "Select date range",
+                                      start  = min(ss_data$Date),
+                                      end    = max(ss_data$Date),
+                                      min    = min(ss_data$Date),
+                                      max    = max(ss_data$Date),
+                                      format = "mm/dd/yy",
+                                      separator = " - "))
+    ),
+    box(width=9,
       plotOutput('violinPredPrey')
     )
   )

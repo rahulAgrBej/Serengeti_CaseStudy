@@ -4,6 +4,7 @@ library(tidyverse)
 library(lubridate)
 library(ggplot2)
 library(scales)
+library(dplyr)
 
 getSerengetiData <- function(fp) {
   
@@ -48,7 +49,6 @@ getSerengetiData <- function(fp) {
            Log_Lion_Risk_Dry = log(Lion_Risk_Dry),
            Log_Greeness_Wet = log(Greeness_Wet),
            Log_Greeness_Dry = log(Greeness_Dry))
-  
   return(data)
 }
 
@@ -88,8 +88,7 @@ summarize_data <- function(
   interacting_input,
   babies_input,
   habitat_input,
-  date_input,
-  x_input) {
+  date_input) {
   
   summary <- data %>% 
     filter(Species %in% species_input) %>%

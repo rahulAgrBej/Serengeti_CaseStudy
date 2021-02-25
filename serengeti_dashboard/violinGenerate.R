@@ -18,11 +18,32 @@ camData_distinct <- Serengeti %>% distinct(Camera.Site, .keep_all = TRUE)
 camData <- select(camData_distinct, Camera.Site:Camera.Mount)
 #===============================================================================
 
-dailyViolinPlot <- function(speciesSelected) {
+dailyViolinPlot <- function(
+  species_input,
+  standing_input,
+  resting_input,
+  moving_input,
+  eating_input,
+  interacting_input,
+  babies_input,
+  habitat_input,
+  date_input) {
   
-  Serengeti_filt <- droplevels(Serengeti[Serengeti$Species %in% speciesSelected, ])
-  violinPlot <- ggplot(Serengeti_filt, 
-                        (aes(x=Species, y = parse_date_time(Time..24.hour.,'%I:%M:%S %p')))) +
+  #Serengeti_filt <- droplevels(Serengeti[Serengeti$Species %in% species_input, ])
+  filtered_data <- summarize_data(
+    ss_data,
+    species_input,
+    standing_input,
+    resting_input,
+    moving_input,
+    eating_input,
+    interacting_input,
+    babies_input,
+    habitat_input,
+    date_input)
+  
+  violinPlot <- ggplot(filtered_data, 
+                        (aes(x=Species, y = Time_24_hour))) +
                 geom_violin() +
                 ylab("Time of Day of Observation (ignore date)") +
                 ggtitle("Species Activity by Time")

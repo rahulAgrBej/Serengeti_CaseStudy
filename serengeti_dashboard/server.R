@@ -36,7 +36,17 @@ server <- function(input, output) {
   })
   
   # Violin Plot Output
-  output$violinPredPrey <- renderPlot({ dailyViolinPlot(input$species_select) })
+  output$violinPredPrey <- renderPlot({ dailyViolinPlot(
+    input$species_violin,
+    input$standing_violin,
+    input$resting_violin,
+    input$moving_violin,
+    input$eating_violin,
+    input$interacting_violin,
+    input$babies_violin,
+    input$habitat_violin,
+    input$date_violin)
+    })
   
   # Box Plot Output
   output$boxplotRender <- renderPlot({ boxplotCreate(
