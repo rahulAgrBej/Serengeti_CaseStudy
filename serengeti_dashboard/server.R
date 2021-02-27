@@ -3,8 +3,24 @@ source('barGenerate.R')
 source('violinGenerate.R')
 source('boxplotGenerate.R')
 source('scatterGenerate.R')
+source('annualGenerate.R')
 
 server <- function(input, output) {
+  
+  # Annual Activity Plot Output
+  output$annualplotRender <- renderPlot({ annualplotCreate(
+    input$species_annual,
+    input$standing_annual,
+    input$resting_annual,
+    input$moving_annual,
+    input$eating_annual,
+    input$interacting_annual,
+    input$babies_annual,
+    input$habitat_annual,
+    input$date_annual,
+    input$y_annual
+    )
+  })
   
   # Bar Plot Output
   output$barplotRender <- renderPlot({ barplotCreate(
@@ -36,7 +52,7 @@ server <- function(input, output) {
   })
   
   # Violin Plot Output
-  output$violinPredPrey <- renderPlot({ dailyViolinPlot(
+  output$violinplotRender <- renderPlot({ dailyViolinPlot(
     input$species_violin,
     input$standing_violin,
     input$resting_violin,

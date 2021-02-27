@@ -77,6 +77,7 @@ scatterplotTab <- tabItem(
   # Row for the output scatterplot
   fluidRow(
     box(width=12,
+        h2('Output:'),
         plotOutput('scatterplotRender')
     )
   )

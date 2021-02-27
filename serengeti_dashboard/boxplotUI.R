@@ -74,6 +74,7 @@ boxplotTab <- tabItem(
   # Row for box plot visualization
   fluidRow(
     box(width=12,
+        h2('Output:'),
         plotOutput('boxplotRender')
     )
   )

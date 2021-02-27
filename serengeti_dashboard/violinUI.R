@@ -61,7 +61,8 @@ violinplotTab <- tabItem(
                                       format = "mm/dd/yy",
                                       separator = " - "))),
     box(width=8,
-      plotOutput('violinPredPrey')
+        h2('Output:'),
+      plotOutput('violinplotRender')
     )
   )
 )
