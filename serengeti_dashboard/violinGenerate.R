@@ -43,8 +43,10 @@ dailyViolinPlot <- function(
     date_input)
   
   violinPlot <- ggplot(filtered_data, 
-                        (aes(x=Species, y = Time_24_hour))) +
+                        (aes(x=Species, y = Time_24_hour, color=Species, fill=Species))) +
                 geom_violin() +
+                scale_color_manual(values = cbPalette) +
+                scale_fill_manual(values = cbPalette) +
                 ylab("Time of Day of Observation (ignore date)") +
                 ggtitle("Species Activity by Time")
   return(violinPlot)

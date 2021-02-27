@@ -7,7 +7,7 @@ violinplotTab <- tabItem(
   
   # Row for activity description and for data filters
   fluidRow(
-    box(width=3,
+    box(width=4,
       h2('Activity:'),
       'Filter using 1 variable', br(),
       'Filter using 2 variables', br(),
@@ -15,7 +15,8 @@ violinplotTab <- tabItem(
       h2('Data Filters:'),
       multiInput(inputId='species_violin',
                  label='Select Species (1-5 species):',
-                 choices=levels(ss_data$Species)),
+                 choices=levels(ss_data$Species),
+                 selected=c('aardvark', 'aardwolf', 'baboon', 'buffalo')),
       switchInput(inputId='advanced_options_selected_violin',
                   label='Show Advanced options',
                   value=FALSE),
@@ -59,7 +60,7 @@ violinplotTab <- tabItem(
                                       max    = max(ss_data$Date),
                                       format = "mm/dd/yy",
                                       separator = " - "))),
-    box(width=9,
+    box(width=8,
       plotOutput('violinPredPrey')
     )
   )
