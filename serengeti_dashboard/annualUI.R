@@ -49,8 +49,17 @@ annualplotTab <- tabItem(
                                           selected = c("Dense Woodland",
                                                        "Grassland w/Trees",
                                                        "Open Grassland",
-                                                       "Open Woodland/Shrubs")))
-      ),
+                                                       "Open Woodland/Shrubs")),
+                       dateRangeInput(inputId ="date_annual",
+                                      label = "Select date range",
+                                      start  = min(ss_data$Date),
+                                      end    = max(ss_data$Date),
+                                      min    = min(ss_data$Date),
+                                      max    = max(ss_data$Date),
+                                      format = "mm/dd/yy",
+                                      separator = " - ")
+                       )
+    ),
     box(width=8,
       h2('Output:'),
       plotOutput('annualplotRender')
