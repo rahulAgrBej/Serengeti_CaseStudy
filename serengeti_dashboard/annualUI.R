@@ -12,6 +12,11 @@ annualplotTab <- tabItem(
                  label='Select Species (1-5 species):',
                  choices=levels(ss_data$Species),
                  selected=c('aardvark', 'aardwolf', 'baboon', 'buffalo')),
+      selectInput(inputId= 'year_annual',
+                  label='Choose Year:',
+                  choices=unique(ss_data$Year),
+                  selected=min(unique(ss_data$Year))
+                  ),
       selectInput(inputId = "y_annual", 
                   label = "y-axis", 
                   choices = c("Count", "Frequency")),
