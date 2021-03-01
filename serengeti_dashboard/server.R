@@ -75,7 +75,6 @@ server <- function(input, output) {
     input$babies_box,
     input$habitat_box,
     input$date_box,
-    input$x_box,
     input$y_box)
     })
   

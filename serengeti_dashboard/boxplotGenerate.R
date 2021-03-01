@@ -14,7 +14,6 @@ boxplotCreate <- function(
   babies_input,
   habitat_input,
   date_input,
-  x_input,
   y_input) {
   
   ss_data_filtered <- filterSerengetiData(
@@ -30,7 +29,7 @@ boxplotCreate <- function(
     date_input) 
   
   p <- ss_data_filtered %>%
-    ggplot(aes_string(x = x_input, y = y_input)) +
+    ggplot(aes_string(x = 'Species', y = y_input)) +
     geom_boxplot(aes(color = Species)) +
     scale_color_manual(values = cbPalette) +
     theme_minimal() +

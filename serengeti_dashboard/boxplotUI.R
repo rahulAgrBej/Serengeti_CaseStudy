@@ -6,16 +6,10 @@ boxplotTab <- tabItem(
   
   # Row for description and data filters
   fluidRow(
-    box(
+    box(width=4,
       h2('Activity:'),
       'Add an activity or exercise description here', br(),
-    ),
-    box(
       h2('Data Filters'),
-      selectInput(inputId = "x_box", 
-                  label = "x-axis", 
-                  choices = categorical_vars,
-                  selected = "Habitat"),
       selectInput(inputId = "y_box", 
                   label = "y-axis", 
                   choices = continuous_vars,
@@ -68,12 +62,8 @@ boxplotTab <- tabItem(
                                       max    = max(ss_data$Date),
                                       format = "mm/dd/yy",
                                       separator = " - "))
-    )
-  ),
-  
-  # Row for box plot visualization
-  fluidRow(
-    box(width=12,
+    ),
+    box(width=8,
         h2('Output:'),
         plotOutput('boxplotRender')
     )
