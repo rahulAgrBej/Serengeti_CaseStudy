@@ -44,7 +44,7 @@ annualplotCreate <- function(
     mutate(Frequency = round(Count/sum(Count), 3))
   
   p <- summary_data %>% 
-    ggplot(aes(x=Month, y=y_input)) +
+    ggplot(aes_string(x = 'Month', y = y_input)) +
     geom_col(aes(fill = Species), position = position_dodge()) +
     scale_fill_manual(values = cbPalette) +
     theme_minimal() +
@@ -53,7 +53,7 @@ annualplotCreate <- function(
           axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
           axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0)),
           axis.text.x = element_text(size = 20),
-          axis.text.y = element_text(size = 20),
+          axis.text.y = element_text(size=15),
           legend.text = element_text(size = 20),
           legend.title = element_text(face = "bold", size = 24),
           plot.margin = unit(c(1,1,1,1), "cm")) +

@@ -2,12 +2,12 @@ library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 
-#source('overviewUI.R')
-#source('scatterUI.R')
-#source('violinUI.R')
-#source('boxplotUI.R')
-#source('barUI.R')
-#source('histoUI.R')
+source('overviewUI.R')
+source('scatterUI.R')
+source('violinUI.R')
+source('boxplotUI.R')
+source('barUI.R')
+source('histoUI.R')
 source('annualUI.R')
 
 sidebar <- dashboardSidebar(
@@ -27,12 +27,12 @@ body <- dashboardBody(
   
   # start of tabs
   tabItems(
-    #overviewTab,
-    #barTab,
-    #histoTab,
-    #scatterplotTab,
-    #boxplotTab,
-    #violinplotTab,
+    overviewTab,
+    barTab,
+    histoTab,
+    scatterplotTab,
+    boxplotTab,
+    violinplotTab,
     annualplotTab
   )
   

@@ -34,6 +34,8 @@ barplotCreate <- function(
     complete(!!(as.symbol(x_input)), fill = list(Count = 0)) %>%
     mutate(Frequency = round(Count/sum(Count), 3))
   
+  print(summary_data)
+  
   p <- summary_data %>% 
     ggplot(aes_string(x = x_input, y = y_input)) +
     geom_col(aes(fill = Species), position = position_dodge()) +
