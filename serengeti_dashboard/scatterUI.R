@@ -10,10 +10,6 @@ scatterplotTab <- tabItem(
     box(
       h2('Activity:'),
       'Filter using 1 variable', br(),
-      'Filter using 2 variables', br(),
-      '...tests'
-    ),
-    box(
       h2('Data Filters:'),
       selectInput(inputId = "x_scatter", 
                   label = "x-axis", 
@@ -24,9 +20,9 @@ scatterplotTab <- tabItem(
                   choices = continuous_vars,
                   selected = "Distance_to_Confluence_m"),
       multiInput(inputId = "species_scatter", 
-                         label = "Species (select up to five)", 
-                         choices = levels(ss_data$Species),
-                         selected = c("aardvark")),
+                 label = "Species (select up to five)", 
+                 choices = levels(ss_data$Species),
+                 selected = c("aardvark")),
       switchInput(inputId='advanced_options_selected_scatter',
                   label='Show Advanced options',
                   value=FALSE),
@@ -71,12 +67,8 @@ scatterplotTab <- tabItem(
                                       max    = max(ss_data$Date),
                                       format = "mm/dd/yy",
                                       separator = " - "))
-    )
-  ),
-  
-  # Row for the output scatterplot
-  fluidRow(
-    box(width=12,
+    ),
+    box(width=8,
         h2('Output:'),
         plotOutput('scatterplotRender')
     )

@@ -11,7 +11,7 @@ annualplotTab <- tabItem(
       multiInput(inputId='species_annual',
                  label='Select Species (1-5 species):',
                  choices=levels(ss_data$Species),
-                 selected=c('aardvark', 'aardwolf', 'baboon', 'buffalo')),
+                 selected=c('aardvark', 'aardwolf', 'baboon')),
       selectInput(inputId= 'year_annual',
                   label='Choose Year:',
                   choices=unique(ss_data$Year),
