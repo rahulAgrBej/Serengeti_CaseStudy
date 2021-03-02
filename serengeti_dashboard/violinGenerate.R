@@ -4,6 +4,8 @@ library(ggplot2)
 library(lubridate)
 
 source('helpers.R')
+source('plotCreators.R')
+
 # Code from https://github.com/klemensj/Serengeti-Apps/tree/master/Serengeti_activity_time
 # DATA 
 # Read in data 
@@ -43,12 +45,6 @@ dailyViolinPlot <- function(
     habitat_input,
     date_input)
   
-  violinPlot <- ggplot(filtered_data, 
-                        (aes(x=Species, y = Time_24_hour, color=Species, fill=Species))) +
-                geom_violin() +
-                scale_color_manual(values = cbPalette) +
-                scale_fill_manual(values = cbPalette) +
-                ylab("Time of Day of Observation (ignore date)") +
-                ggtitle("Species Activity by Time")
+  violinPlot <- plotViolin(filtered_data)
   return(violinPlot)
 }

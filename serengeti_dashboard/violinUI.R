@@ -62,7 +62,7 @@ violinplotTab <- tabItem(
                                       separator = " - "))),
     box(width=8,
         h2('Output:'),
-      plotOutput('violinplotRender')
+        plotOutput('violinplotRender')
     )
   )
 )
