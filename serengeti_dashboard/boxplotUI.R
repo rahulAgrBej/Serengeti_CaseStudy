@@ -65,7 +65,8 @@ boxplotTab <- tabItem(
     ),
     box(width=8,
         h2('Output:'),
-        plotOutput('boxplotRender')
+        plotOutput('boxplotRender'),
+        downloadButton('boxDownload', 'Download')
     )
   )
   

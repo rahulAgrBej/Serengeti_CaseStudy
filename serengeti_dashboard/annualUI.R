@@ -67,7 +67,8 @@ annualplotTab <- tabItem(
     ),
     box(width=8,
       h2('Output:'),
-      plotOutput('annualplotRender')
+      plotOutput('annualplotRender'),
+      downloadButton('annualDownload', 'Download')
     )
   )
 )

@@ -31,7 +31,7 @@ histoplotCreate <- function(
   group_by(Species) %>%
   summarise(group_mean = mean(!!(as.symbol(x_input))))
   
-  p <- filterData  %>% 
+  p <- filterData  %>%
       ggplot(aes_string(x = x_input)) +
       geom_histogram(aes(color = Species), fill = "white") +
       geom_vline(data = group_mean_data, 

@@ -7,7 +7,7 @@ scatterplotTab <- tabItem(
   
   # Row for activity description and for data filters
   fluidRow(
-    box(
+    box(width=4,
       h2('Activity:'),
       'Filter using 1 variable', br(),
       h2('Data Filters:'),
@@ -70,7 +70,8 @@ scatterplotTab <- tabItem(
     ),
     box(width=8,
         h2('Output:'),
-        plotOutput('scatterplotRender')
+        plotOutput('scatterplotRender'),
+        downloadButton('scatterDownload', 'Download')
     )
   )
 )

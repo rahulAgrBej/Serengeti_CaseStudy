@@ -67,7 +67,8 @@ barTab <- tabItem(
     ),
     box(width=8,
       h2('Output:'),
-      plotOutput('barplotRender')
+      plotOutput('barplotRender'),
+      downloadButton('barDownload', 'Download')
     )
   )
 )

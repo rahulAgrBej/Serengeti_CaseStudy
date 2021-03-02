@@ -62,7 +62,8 @@ histoTab <- tabItem(
     ),
     box(width=8,
         h2('Output:'),
-        plotOutput('histoplotRender')
+        plotOutput('histoplotRender'),
+        downloadButton('histoDownload', 'Download')
     )
   )
 )
