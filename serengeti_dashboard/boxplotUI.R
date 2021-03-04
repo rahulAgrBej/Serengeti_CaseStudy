@@ -7,8 +7,10 @@ boxplotTab <- tabItem(
   # Row for description and data filters
   fluidRow(
     box(width=4,
-      h2('Activity:'),
-      'Add an activity or exercise description here', br(),
+      h2('Boxplots - comparing categorical and continuous variables'),
+      'Boxplots are useful graphs for exploring the relationship between a categorical variable and a continuous variable.', br(), br(),
+      'In this boxplot, the categorical variable is presented on the X-axis, and the continuous variable on the Y-axis. The top and bottom of the box correspond to the 25% and 75% percentiles of the data. The whiskers indicate the ~95% percentiles of the data. Data beyond the end of the whiskers are called "outlying" points and are plotted individually. The line in the center of the box represents the median.', br(), br(),
+      'You can use the filters to narrow down what photos you are interested in. You can also select multiple species to compare. The data for each species will be represented by a different color.', br(),
       h2('Data Filters'),
       selectInput(inputId = "y_box", 
                   label = "y-axis", 

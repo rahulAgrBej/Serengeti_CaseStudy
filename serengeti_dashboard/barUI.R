@@ -5,8 +5,10 @@ barTab <- tabItem(
   tabName = 'barplot',
   fluidRow(
     box(width=4,
-      h2('Activity:'),
-      'Enter activity data here', br(),
+      h2('Bar Charts - animal frequency beteween categories'),
+      'The bar chart graph is useful for comparing animal frequency between categories of a categorical or binary variable.', br(), br(),
+      'The X-axis consists of categories for the given variable. The Y-axis is the frequency of photos taken of a given species in each category. The Y-axis can be changed to absolute frequency (# of photos) or relative frequency (fraction of photos in each category).',  br(), br(),
+      'You can use the filters to narrow down what photos you are interested in. You can also select multiple species to compare. The data for each species will be represented by a different color.', br(),
       h2('Data Filters'),
       selectInput(inputId = "x_bar", 
                   label = "x-axis", 

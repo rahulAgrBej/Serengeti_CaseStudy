@@ -8,10 +8,10 @@ violinplotTab <- tabItem(
   # Row for activity description and for data filters
   fluidRow(
     box(width=4,
-      h2('Activity:'),
-      'Filter using 1 variable', br(),
-      'Filter using 2 variables', br(),
-      '...tests', br(),
+      h2('Daily Activity Analysis:'),
+      'The daily activity graphs are called “violin” plots because of their shape. This graph is useful for seeing how often an animal is observed by the camera traps at different times during the day.', br(), br(),
+      'In a violin plot, the wider the figure, the more photos have been taken of the given animal at that time of day.', br(), br(),
+      'You can use the filters to narrow down what photos you are interested in. You can also select multiple species to compare. Species will be plotted alongside each other.', br(),
       h2('Data Filters:'),
       multiInput(inputId='species_violin',
                  label='Select Species (1-5 species):',

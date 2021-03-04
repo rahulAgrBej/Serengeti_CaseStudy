@@ -5,8 +5,10 @@ histoTab <- tabItem(
   tabName='histoplot',
   fluidRow(
     box(width=4,
-      h2('Activity:'),
-      'Enter activity description', br(),
+      h2('Histograms - animal frequency between continuous variables'),
+      'The histogram graph is useful for comparing animal frequency across the range of a continuous variable.', br(), br(),
+      'The X-axis is the continuous variable divided into equally sized bins. The Y-axis is the frequency of photos taken of a given species within each bin. The Y-axis can be changed to absolute frequency (# of photos) or relative frequency (fraction of photos in each category).', br(), br(),
+      'You can use the filters to narrow down what photos you are interested in. You can also select multiple species to compare. The data for each species will be represented by a different color.', br(),
       h2('Data Filters:'),
       selectInput(inputId = "x_histo", 
                   label = "x-axis", 

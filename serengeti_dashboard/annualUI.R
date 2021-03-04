@@ -5,8 +5,10 @@ annualplotTab <- tabItem(
   tabName='annualplot',
   fluidRow(
     box(width=4,
-      h2('Activity'),
-      'Add activity description here', br(),
+      h2('Annual Activity Analysis'),
+      'The annual activity graph is a specific bar chart comparing animal frequency by month. This graph is useful for seeing how often an animal is observed by the camera traps at different times of the year.', br(), br(),
+      'The X-axis consists of the months of the year, while the Y-axis represents the frequency of photos taken of a given species.', br(), br(),
+      'You can use the filters to narrow down what photos you are interested in. You can also select multiple species to compare. The data for each species will be represented by a different color.', br(),
       h2('Data Filters'),
       multiInput(inputId='species_annual',
                  label='Select Species (1-5 species):',

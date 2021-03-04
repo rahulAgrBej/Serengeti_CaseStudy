@@ -8,8 +8,10 @@ scatterplotTab <- tabItem(
   # Row for activity description and for data filters
   fluidRow(
     box(width=4,
-      h2('Activity:'),
-      'Filter using 1 variable', br(),
+      h2('Scatterplots and comparing continuous variables'),
+      'Scatterplots are useful graphs for exploring the relationship between two continuous variables.', br(), br(),
+      'In this scatterplot, each dot represents data from a single photo from a specific camera trap. The line (regression line) represents the “average” relationship between two variables, averaged across all the data points.', br(), br(),
+      'You can use the filters to narrow down what photos you are interested in. You can also select multiple species to compare. The data for each species will be represented by a different color.', br(),
       h2('Data Filters:'),
       selectInput(inputId = "x_scatter", 
                   label = "x-axis", 
