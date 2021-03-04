@@ -2,6 +2,7 @@
 source('helpers.R')
 
 barplotCreate <- function(
+  ss_data,
   species_input,
   standing_input,
   resting_input,

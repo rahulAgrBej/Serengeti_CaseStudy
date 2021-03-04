@@ -7,8 +7,13 @@ source('annualGenerate.R')
 
 server <- function(input, output) {
   
+  dataInput <- reactive({
+    getSerengetiData('../../Full_Serengeti_Data.csv')
+  })
+  
   # Annual Activity Plot Output
   output$annualplotRender <- renderPlot({ annualplotCreate(
+    dataInput(),
     input$species_annual,
     input$standing_annual,
     input$resting_annual,
@@ -23,6 +28,7 @@ server <- function(input, output) {
   
   # Bar Plot Output
   output$barplotRender <- renderPlot({ barplotCreate(
+    dataInput(),
     input$species_bar,
     input$standing_bar,
     input$resting_bar,
@@ -38,6 +44,7 @@ server <- function(input, output) {
   
   # Histogram Plot Output
   output$histoplotRender <- renderPlot({ histoplotCreate(
+    dataInput(),
     input$species_histo,
     input$standing_histo,
     input$resting_histo,
@@ -52,6 +59,7 @@ server <- function(input, output) {
   
   # Violin Plot Output
   output$violinplotRender <- renderPlot({ dailyViolinPlot(
+    dataInput(),
     input$species_violin,
     input$standing_violin,
     input$resting_violin,
@@ -65,6 +73,7 @@ server <- function(input, output) {
   
   # Box Plot Output
   output$boxplotRender <- renderPlot({ boxplotCreate(
+    dataInput(),
     input$species_box,
     input$standing_box,
     input$resting_box,
@@ -79,6 +88,7 @@ server <- function(input, output) {
   
   # Scatter Plot Output
   output$scatterplotRender <- renderPlot({ scatterplotCreate(
+    dataInput(),
     input$species_scatter,
     input$standing_scatter,
     input$resting_scatter,
@@ -102,6 +112,7 @@ server <- function(input, output) {
       pdf(file)
       print(
         dailyViolinPlot(
+        dataInput(),
         input$species_violin,
         input$standing_violin,
         input$resting_violin,
@@ -125,6 +136,7 @@ server <- function(input, output) {
       pdf(file)
       print(
         scatterplotCreate(
+          dataInput(),
           input$species_scatter,
           input$standing_scatter,
           input$resting_scatter,
@@ -150,6 +162,7 @@ server <- function(input, output) {
       pdf(file)
       print(
         histoplotCreate(
+          dataInput(),
           input$species_histo,
           input$standing_histo,
           input$resting_histo,
@@ -174,6 +187,7 @@ server <- function(input, output) {
       pdf(file)
       print(
         annualplotCreate(
+          dataInput(),
           input$species_annual,
           input$standing_annual,
           input$resting_annual,
@@ -198,6 +212,7 @@ server <- function(input, output) {
       pdf(file)
       print(
         boxplotCreate(
+          dataInput(),
           input$species_box,
           input$standing_box,
           input$resting_box,
@@ -222,6 +237,7 @@ server <- function(input, output) {
       pdf(file)
       print(
         barplotCreate(
+          dataInput(),
           input$species_bar,
           input$standing_bar,
           input$resting_bar,

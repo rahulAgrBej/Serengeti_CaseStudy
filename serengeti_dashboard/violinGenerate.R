@@ -21,6 +21,7 @@ source('helpers.R')
 #===============================================================================
 
 dailyViolinPlot <- function(
+  ss_data,
   species_input,
   standing_input,
   resting_input,

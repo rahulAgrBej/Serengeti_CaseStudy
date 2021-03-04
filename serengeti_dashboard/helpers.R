@@ -105,8 +105,7 @@ summarize_data <- function(
   return(summary)
 }
 
-ss_data <- getSerengetiData('../../Full_Serengeti_Data.csv')
-species_list <- levels(ss_data$Species)
+#species_list <- levels(ss_data$Species)
 
 # A colorblind-friendly palette with grey:
 cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#999999")

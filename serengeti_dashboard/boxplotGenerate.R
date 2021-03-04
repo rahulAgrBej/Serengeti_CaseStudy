@@ -1,10 +1,8 @@
 
 source('helpers.R')
 
-ss_data <- getSerengetiData('../../Full_Serengeti_Data.csv')
-species_list <- levels(ss_data$Species)
-
 boxplotCreate <- function(
+  ss_data,
   species_input,
   standing_input,
   resting_input,
