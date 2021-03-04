@@ -23,7 +23,8 @@ annualplotCreate <- function(
     filter(Eating %in% eating_input) %>%
     filter(Interacting %in% interacting_input) %>%
     filter(Babies %in% babies_input) %>%
-    filter(Habitat %in% habitat_input)
+    filter(Habitat %in% habitat_input) %>%
+    filter(Year == year_input)
   
   summary_data <- summary_data %>%
     mutate(Month=format(Date, '%m')) %>%

@@ -105,7 +105,6 @@ summarize_data <- function(
   return(summary)
 }
 
-#species_list <- levels(ss_data$Species)
 
 # A colorblind-friendly palette with grey:
 cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#999999")
@@ -155,6 +154,30 @@ categorical_vars <- c("Babies",
                       "Moving",
                       "Resting",
                       "Standing")
+
+standing_list <- c("Not standing", "Standing")
+resting_list <- c("Not resting", "Resting")
+moving_list <- c("Not moving", "Moving")
+eating_list <- c("Not eating", "Eating")
+interacting_list <- c("Not interacting", "Interacting")
+babies_list <- c("No babies", "Babies")
+habitat_list <- c("Dense Woodland",
+                  "Grassland w/Trees",
+                  "Open Grassland",
+                  "Open Woodland/Shrubs")
+year_list <- c(2010, 2011, 2012, 2013)
+
+species_list <- c("aardvark", "aardwolf", "baboon", "batEaredFox", "buffalo", "bushbuck",
+                  "caracal", "cheetah", "civet", "dikDik", "eland", "elephant", "gazelleGrants",
+                  "gazelleThomsons", "genet", "giraffe", "guineaFowl", "hare", "hartebeest", 
+                  "hippopotamus", "honeyBadger", "human", "hyenaSpotted", "hyenaStriped",
+                  "impala", "jackal", "koriBustard", "leopard", "lionFemale", "lionMale",
+                  "mongoose", "ostrich", "otherBird", "porcupine", "reedbuck", "reptiles",
+                  "rhinoceros", "rodents", "secretaryBird", "serval", "topi", "vervetMonkey",
+                  "warthog", "waterbuck", "wildcat", "wildebeest", "zebra", "zorilla")
+
+startDate <- as.Date('2010-07-16', format='%Y-%m-%d')
+endDate <- as.Date('2013-04-26', format='%Y-%m-%d')
 
 commonGrazerList <- c("buffalo","eland","elephant","gazelleGrants", "gazelleThomsons","giraffe","hartebeest","hippopotamus","impala", "reedbuck", "rhinoceros", "topi", "warthog", "wildebeest","zebra")
 predList <- c("batEaredFox","jackal","hyenaSpotted","hyenaStriped","wildcat","serval","cheetah","leopard","lionMale","lionFemale")

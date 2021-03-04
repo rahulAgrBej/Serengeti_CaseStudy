@@ -4,6 +4,7 @@ source('violinGenerate.R')
 source('boxplotGenerate.R')
 source('scatterGenerate.R')
 source('annualGenerate.R')
+source('histoGenerate.R')
 
 server <- function(input, output) {
   
