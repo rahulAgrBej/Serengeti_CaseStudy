@@ -18,18 +18,22 @@ server <- function(input, output) {
   })
   
   # Spatial Distribution Output
-  output$spatialplotRender <- renderMapview({ spatialplotCreate(
-    #dataInput(),
-    #kopjesInput(),
-    input$species_spatial,
-    input$standing_spatial,
-    input$resting_spatial,
-    input$moving_spatial,
-    input$eating_spatial,
-    input$interacting_spatial,
-    input$babies_spatial,
-    input$habitat_spatial)
+  observe({
+    output$spatialplotRender <- renderMapview({
+      spatialplotCreate(
+        dataInput(),
+        kopjesInput(),
+        input$species_spatial,
+        input$standing_spatial,
+        input$resting_spatial,
+        input$moving_spatial,
+        input$eating_spatial,
+        input$interacting_spatial,
+        input$babies_spatial,
+        input$habitat_spatial)
+    })
   })
+  
   
   # Annual Activity Plot Output
   output$annualplotRender <- renderPlot({ annualplotCreate(

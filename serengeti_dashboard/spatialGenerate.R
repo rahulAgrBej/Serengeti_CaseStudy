@@ -15,8 +15,8 @@ library(plyr)
 source('helpers.R')
 
 spatialplotCreate <- function(
-  #dat,
-  #Kopjes,
+  dat,
+  Kopjes,
   species_input,
   standing_input,
   resting_input,
@@ -26,12 +26,6 @@ spatialplotCreate <- function(
   babies_input,
   habitat_input
 ) {
-  
-  # Important Snapshot Data
-  dat = getSerengetiData('../../Full_Serengeti_Data.csv')
-  
-  # Important Kopjes shapefile
-  Kopjes <- readOGR("../../Kopjes/V3_Kopjes_ARC1960.shp")
   
   # Assemble camera trap data set
   #subset of larger data set contain the static metadata for each camera trap site
