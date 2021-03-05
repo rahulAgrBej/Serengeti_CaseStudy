@@ -5,11 +5,30 @@ source('boxplotGenerate.R')
 source('scatterGenerate.R')
 source('annualGenerate.R')
 source('histoGenerate.R')
+source('spatialGenerate.R')
 
 server <- function(input, output) {
   
   dataInput <- reactive({
     getSerengetiData('../../Full_Serengeti_Data.csv')
+  })
+  
+  kopjesInput <- reactive({
+    readOGR("../../Kopjes/V3_Kopjes_ARC1960.shp")
+  })
+  
+  # Spatial Distribution Output
+  output$spatialplotRender <- renderMapview({ spatialplotCreate(
+    #dataInput(),
+    #kopjesInput(),
+    input$species_spatial,
+    input$standing_spatial,
+    input$resting_spatial,
+    input$moving_spatial,
+    input$eating_spatial,
+    input$interacting_spatial,
+    input$babies_spatial,
+    input$habitat_spatial)
   })
   
   # Annual Activity Plot Output

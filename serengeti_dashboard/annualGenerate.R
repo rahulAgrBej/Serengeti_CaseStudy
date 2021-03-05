@@ -17,7 +17,7 @@ annualplotCreate <- function(
 
   summary_data <- ss_data %>%
     filter(Species %in% species_input) %>%
-    filter(Standing %in% standing_input) %>% 
+    filter(Standing %in% standing_input) %>%
     filter(Resting %in% resting_input) %>%
     filter(Moving %in% moving_input) %>%
     filter(Eating %in% eating_input) %>%

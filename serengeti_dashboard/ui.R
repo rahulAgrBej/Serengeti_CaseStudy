@@ -9,6 +9,7 @@ source('boxplotUI.R')
 source('barUI.R')
 source('histoUI.R')
 source('annualUI.R')
+source('spatialUI.R')
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
@@ -19,7 +20,7 @@ sidebar <- dashboardSidebar(
     menuItem('Boxplot', tabName='boxplot'),
     menuItem('Daily Activity', tabName='violinplot'),
     menuItem('Annual Activity', tabName='annualplot'),
-    menuItem('Spatial Distribution')
+    menuItem('Spatial Distribution', tabName='spatialplot')
   )
 )
 
@@ -33,7 +34,8 @@ body <- dashboardBody(
     scatterplotTab,
     boxplotTab,
     violinplotTab,
-    annualplotTab
+    annualplotTab,
+    spatialplotTab
   )
   
   # end of body
