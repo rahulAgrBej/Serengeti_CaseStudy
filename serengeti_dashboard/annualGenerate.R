@@ -38,7 +38,7 @@ annualplotCreate <- function(
   
   summary_data <- summary_data %>%
     group_by(Species, Month) %>%
-    count(name="Count") %>%
+    dplyr::count(name="Count") %>%
     ungroup() %>%
     group_by(Species) %>%
     full_join(speciesMonths) %>%

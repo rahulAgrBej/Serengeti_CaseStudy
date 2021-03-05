@@ -30,7 +30,7 @@ histoplotCreate <- function(
   
   group_mean_data <- filterData %>% 
   group_by(Species) %>%
-  summarise(group_mean = mean(!!(as.symbol(x_input))))
+  dplyr::summarise(group_mean = mean(!!(as.symbol(x_input))))
   
   p <- filterData  %>%
       ggplot(aes_string(x = x_input)) +
