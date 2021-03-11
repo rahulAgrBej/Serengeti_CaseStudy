@@ -25,7 +25,8 @@ spatialplotCreate <- function(
   interacting_input,
   babies_input,
   habitat_input,
-  date_input
+  date_input,
+  meta_input
 ) {
   
   # Assemble camera trap data set
@@ -34,7 +35,7 @@ spatialplotCreate <- function(
   # metadata includes: "Camera_Site", "Longitude..m.","Latitude..m.","Habitat","Amount.of.Shade","Distance.to.River..m.","Distance.to.Confluence..m.","Distance.to.Kopje..m.","Tree.Density.Measure","Lion.Risk..Wet.","Lion.Risk..Dry.","Greeness..Wet.""Greeness..Dry.","Camera.Mount"
   dat.grid <- dat[!duplicated(dat$Camera_Site),names(dat)[15:28]]
   
-
+  
   # Transform camera grid in shape file
   datCoor <- dat.grid
   coordinates(datCoor) = ~Longitude_m + Latitude_m
@@ -70,6 +71,15 @@ spatialplotCreate <- function(
     date_input
   )
   
+  
+  print(species_input)
+  
+  for (idx in nrow(species_input)) {
+    print("here=======")
+    print(species_input[idx])
+    print("out============")
+  }
+  
   if (is.null(species_input)) {
     species_input <- c('cheetah')
   }
@@ -83,7 +93,7 @@ spatialplotCreate <- function(
   
   # Base Map: Uses cropped Kopjes shape file
   m <- mapview(Kopjes.crop, col.regions='black', alpha.regions=1,
-          layer.name='Kopjes') +
+               layer.name='Kopjes') +
     # Species A Frequency, Date Range 1: based on filtered data
     mapview(dfACoor,zcol = 'freq',cex='freq', color='black', col.regions=brewer.pal(9, "Reds"),
             alpha.region=1,layer.name=paste(species_input[1],"frequency",sep=" ")) +
@@ -97,7 +107,7 @@ spatialplotCreate <- function(
     #mapview(dfACoor2,zcol = 'freq',cex='freq', color='black', col.regions=brewer.pal(9, "PuBu"),
     #alpha.region=1,layer.name=paste(unique(dfCoor$Species)[[2]],"frequency",sep=" ")) +
     # Metadata: students can select one metadata variable to include in their plot. If they don't select one, nothing is ploted here.
-    mapview(datCoor,zcol = 'Greeness_Dry',cex='Greeness_Dry', color='black',col.regions=brewer.pal(9, "BrBG"))
+    mapview(datCoor,zcol = meta_input,cex=meta_input, color='black',col.regions=brewer.pal(9, "BrBG"))
   
   return(m)
 }

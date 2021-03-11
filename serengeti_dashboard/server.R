@@ -31,7 +31,8 @@ server <- function(input, output) {
         input$interacting_spatial,
         input$babies_spatial,
         input$habitat_spatial,
-        input$date_spatial)
+        input$date_spatial,
+        input$meta_spatial)
     })
   })
   
