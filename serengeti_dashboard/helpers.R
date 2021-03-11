@@ -17,6 +17,9 @@ getSerengetiData <- function(fp) {
   
   data$Number_Of_Animals <- as.numeric(data$Number_Of_Animals)
   
+  data <- data %>%
+    drop_na()
+  
   data <- data %>% 
     mutate(Date = mdy(Date),
            Species = factor(Species),
