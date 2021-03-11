@@ -48,7 +48,7 @@ server <- function(input, output) {
     input$interacting_annual,
     input$babies_annual,
     input$habitat_annual,
-    input$year_annual,
+    #input$year_annual,
     input$y_annual)
   })
   
@@ -222,7 +222,7 @@ server <- function(input, output) {
           input$interacting_annual,
           input$babies_annual,
           input$habitat_annual,
-          input$year_annual,
+          #input$year_annual,
           input$y_annual)
       )
       
