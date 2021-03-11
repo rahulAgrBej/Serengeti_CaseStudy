@@ -10,7 +10,7 @@ source('spatialGenerate.R')
 server <- function(input, output) {
   
   dataInput <- reactive({
-    getSerengetiData('../../Full_Serengeti_Data_NEW.csv')
+    getSerengetiData('../../Full_Serengeti_Data_OLD.csv')
   })
   
   kopjesInput <- reactive({

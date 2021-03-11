@@ -71,15 +71,6 @@ spatialplotCreate <- function(
     date_input
   )
   
-  
-  print(species_input)
-  
-  for (idx in nrow(species_input)) {
-    print("here=======")
-    print(species_input[idx])
-    print("out============")
-  }
-  
   if (is.null(species_input)) {
     species_input <- c('cheetah')
   }
