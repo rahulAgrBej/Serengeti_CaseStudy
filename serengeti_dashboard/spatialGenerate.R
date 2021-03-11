@@ -69,6 +69,11 @@ spatialplotCreate <- function(
     habitat_input,
     date_input
   )
+  
+  if (is.null(species_input)) {
+    species_input <- c('cheetah')
+  }
+  
   df_sp = subset(dat, Species == species_input[1])
   df = count(df_sp, c('Species','Camera_Site'))
   # Merge with frequency data with camera trap spatial data
