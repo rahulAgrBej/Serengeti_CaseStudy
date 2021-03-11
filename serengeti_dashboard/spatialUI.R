@@ -13,7 +13,7 @@ spatialplotTab <- tabItem(
         multiInput(inputId='species_spatial',
                    label='Select Species (1-5 species):',
                    choices=species_list,
-                   selected=c('aardvark', 'aardwolf', 'baboon')),
+                   selected=c('cheetah')),
         switchInput(inputId='advanced_options_selected_spatial',
                     label='Show Advanced options',
                     value=FALSE),

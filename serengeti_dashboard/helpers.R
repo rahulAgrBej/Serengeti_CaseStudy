@@ -15,6 +15,8 @@ getSerengetiData <- function(fp) {
   names(data) <- gsub("\\(", "", names(data))
   names(data) <- gsub("\\)", "", names(data))
   
+  data$Number_Of_Animals <- as.numeric(data$Number_Of_Animals)
+  
   data <- data %>% 
     mutate(Date = mdy(Date),
            Species = factor(Species),
@@ -87,8 +89,7 @@ summarize_data <- function(
   eating_input,
   interacting_input,
   babies_input,
-  habitat_input,
-  date_input) {
+  habitat_input) {
   
   summary <- data %>% 
     filter(Species %in% species_input) %>%
@@ -98,8 +99,7 @@ summarize_data <- function(
     filter(Eating %in% eating_input) %>%
     filter(Interacting %in% interacting_input) %>%
     filter(Babies %in% babies_input) %>%
-    filter(Habitat %in% habitat_input) %>%
-    filter(Date >= date_input[1] & Date <= date_input[2]) 
+    filter(Habitat %in% habitat_input)
   
   
   return(summary)

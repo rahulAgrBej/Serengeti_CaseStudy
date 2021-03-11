@@ -10,7 +10,7 @@ source('spatialGenerate.R')
 server <- function(input, output) {
   
   dataInput <- reactive({
-    getSerengetiData('../../Full_Serengeti_Data.csv')
+    getSerengetiData('../../Full_Serengeti_Data_OLD.csv')
   })
   
   kopjesInput <- reactive({
@@ -30,7 +30,8 @@ server <- function(input, output) {
         input$eating_spatial,
         input$interacting_spatial,
         input$babies_spatial,
-        input$habitat_spatial)
+        input$habitat_spatial,
+        input$date_spatial)
     })
   })
   
