@@ -14,7 +14,7 @@ histoplotCreate <- function(
   date_input,
   x_input) {
   
-  filterData <- summarize_data(
+  filterData <- filterSerengetiData(
     ss_data,
     species_input,
     standing_input,

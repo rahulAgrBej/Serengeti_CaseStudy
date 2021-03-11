@@ -33,7 +33,7 @@ dailyViolinPlot <- function(
   date_input) {
   
   #Serengeti_filt <- droplevels(Serengeti[Serengeti$Species %in% species_input, ])
-  filterData <- summarize_data(
+  filterData <- filterSerengetiData(
     ss_data,
     species_input,
     standing_input,
