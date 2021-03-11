@@ -35,7 +35,6 @@ barplotCreate <- function(
     complete(!!(as.symbol(x_input)), fill = list(Count = 0)) %>%
     mutate(Frequency = round(Count/sum(Count), 3))
   
-  
   p <- summary_data %>% 
     ggplot(aes_string(x = x_input, y = y_input)) +
     geom_col(aes(fill = Species), position = position_dodge()) +
@@ -43,7 +42,7 @@ barplotCreate <- function(
               vjust = -0.25, size = 4, fontface = 'bold', position = position_dodge(width = 0.9)) +
     scale_fill_manual(values = cbPalette) +
     theme_minimal() +
-    scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .3))) +
     scale_x_discrete(labels = label_wrap(10)) +
     theme(axis.title = element_text(face = "bold", size = 24),
           axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
